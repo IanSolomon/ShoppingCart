@@ -31,17 +31,33 @@ public class cartTests {
 		
 		Cart carttestinstance;
 		carttestinstance = new Cart();
-		Map<String, Double>ItemToLookUp = new HashMap<String, Double>() ;
+		//Map<String, Double>ItemToLookUp = new HashMap<String, Double>() ;
 		
-		ItemToLookUp.put("Bag", 7.99);
+		//ItemToLookUp.put("Bag", 7.99);
 		
 		carttestinstance.AddToCart(new Item("Bag", 7.99, 1));
+		//carttestinstance.AddToCart(new Item("Bag", 7.99, 1));
+		
+		//carttestinstance.InventoryList(ItemToLookUp);
 		carttestinstance.CalculateCost();
-		carttestinstance.InventoryList(ItemToLookUp);
 		//carttestinstance.GetSelectedItem();
-		 assertEquals("7.99", carttestinstance.GetTotalCost());
+		 assertEquals(1, carttestinstance.GetSizeOfItemList());
 	}
 	
+	@Test
+	public void RemoveAnItem() {
+		
+		Cart carttestinstance;
+		carttestinstance = new Cart();
+		
+		carttestinstance.AddToCart(new Item("Bag", 7.99, 1));
+		carttestinstance.AddToCart(new Item("Bag", 7.99, 1));
+		
+		carttestinstance.AddToCart(new Item("Sweets", 7.99, 1));
+		
+		carttestinstance.RemoveSelectedItem(new Item("Bag", 7.99, 1), 2);
+		 assertEquals(1, carttestinstance.GetSizeOfItemList());
+	}
 	
 
 }

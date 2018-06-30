@@ -12,6 +12,6 @@ public interface ICart {
 	double GetTotalCost();
 	int GetSizeOfItemList();
 	Item GetSelectedItem(int id);
-	void InventoryList(Map<String, Double> ItemLookUp);
+//	void InventoryList(Map<String, Double> ItemLookUp);
 	
 }
